@@ -118,6 +118,6 @@ true
 -mark-
 ```
 
-The second error page is due to some font issues that I have not tracked down yet, but I think have to do with the `pdf2ps` conversion.
+The second error page is due to some font issues that I have not tracked down yet, but I think has to do with the `pdf2ps` conversion.
 
 
