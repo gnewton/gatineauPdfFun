@@ -50,35 +50,29 @@ PNG of PDF output:
 ![PNG of the PDF map](gatineau_trail_distances-rotated.png)
 
 ## Remove the blue background
-1. Convert to postscript
+1. Find the blue colour with some image editor. I used `gimp` and its colour picker indicated the RGB for the background is: 217,240,211, or in the 0..1 range: 0.851 0.9412 0.8275
+2. Convert to postscript
 ```
-$ pdf2s gatineau_trail_distances-rotated.pdf
+$ pdftops gatineau_trail_distances-rotated.pdf
 ```
 Producing gatineau_trail_distances-rotated.ps
 
-Now, open the postscript file and look for "setrgbcolor". In most postscript files, the author has aliased this to a shorter function.
-In this file, this is done on line 3807
+Now, 
+
+Now, open the postscript file and search for "0.851". 
+
+Found on line 1265:
 ```
-/rg/setrgbcolor load def
+/DeviceRGB {} cs
+[0.851 0.9412 0.8275] sc
+/DeviceRGB {} CS
 ```
 
-Now, look for where this function is used, with a colour that is similar to the background color, and before some drawing commands for a simple rectangle.
-
-Some searching finds this on line 17983:
+Change this to:
 ```
-0.851563 0.941406 0.828125 rg
-0.2 i
--10654.7 5304.08 m
--2419.21 -8960.5 l
-16040.8 1697.18 l
-7805.36 15961.8 l
--10654.7 5304.08 l
-f
-```
-
-Change the first line to:
-```
-1 1 1 rg
+/DeviceRGB {} cs
+[1 1 1] sc
+/DeviceRGB {} CS
 ```
 
 Preview with ghsoscript as PNG:
@@ -89,8 +83,8 @@ $gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png48 -dDOINTERPOLATE -dTextAlphaBits=4 -
 PNG of PS output:
 ![PNG of the PDF map](gatineau_trail_distances-rotated-whitebg.png)
 
-## PDF Issues
-The PDF is here: [gatineau_trail_distances-rotated-whitebg.pdf](gatineau_trail_distances-rotated-whitebg.pdf)
+## PDF
+The final PDF is here: [gatineau_trail_distances-rotated-whitebg.pdf](gatineau_trail_distances-rotated-whitebg.pdf)
 
 You will notice there are two pages, one with the map, and a second with a number of error messages from ghostscript:
 ```
