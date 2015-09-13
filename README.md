@@ -4,6 +4,7 @@
 I was wanting to go to the Gatineau Park for a hike, and was looking around for some good maps of the trail.
 
 While I found a number of the offical maps:
+
 *[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gatineau-park-summer-trail-map.pdf](Gatineau Park Summer Trails Map)
 *[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet-2014_e2_luskvillefalls.pdf](Luskville Falls Trail)
 *[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet_e3_wolf_0.pdf](Wolf Trail #62)
