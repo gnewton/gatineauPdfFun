@@ -22,9 +22,9 @@ Here is a PNG of the PDF map:
 However, as I wanted to actually print the map, there were some issues with this map:
 
 * It inefficiently uses the real estate on the page, due to its rotation and scaling.
-* The text on the trails denoting trail length were too small
+* The text on the trails denoting trail length is too small
 * Some of the trails at the north and south end of the park were not of interest to me
-* It had a pale blue background that I did not want to have, both from a readability perspective, and so as not to deplete my printer ink.
+* It has a pale blue background that I did not want to have, both from a readability perspective, and so as not to deplete my printer ink.
 
 # Pre-requisites
 * `PDFjam`: [http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/](http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/)
@@ -36,8 +36,8 @@ However, as I wanted to actually print the map, there were some issues with this
 
 # The Solution
 
-1.Rotate, shift and scale
-2.Remove backgound colour
+1. Rotate, shift and scale
+2. Remove backgound colour
 
 
 ## Rotate, shift and scale
