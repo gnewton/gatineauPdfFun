@@ -28,7 +28,7 @@ However, as I wanted to actually print the map, there were some issues with this
 # Pre-requisites
 * PDFjam: [http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/](http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/)
 * pdfTeX, pdtLaTeX, LaTeX package 'pdfpages'
-* pdf2ps: [http://linux.about.com/library/cmd/blcmdl1_pdf2ps.htm](http://linux.about.com/library/cmd/blcmdl1_pdf2ps.htm)
+* pdftops: Part of xpdf [http://www.foolabs.com/xpdf/download.html](http://www.foolabs.com/xpdf/download.html)
 * ps2pdf: [http://ghostscript.com/doc/current/Ps2pdf.htm](http://ghostscript.com/doc/current/Ps2pdf.htm)
 * psselect: part of psutils [https://github.com/rrthomas/psutils](https://github.com/rrthomas/psutils)
 
@@ -50,14 +50,13 @@ PNG of PDF output:
 ![PNG of the PDF map](gatineau_trail_distances-rotated.png)
 
 ## Remove the blue background
-1. Find the blue colour with some image editor. I used `gimp` and its colour picker indicated the RGB for the background is: 217,240,211, or in the 0..1 range: 0.851 0.9412 0.8275
-2. Convert to postscript
+1. Convert to postscript
 ```
 $ pdftops gatineau_trail_distances-rotated.pdf
 ```
 Producing gatineau_trail_distances-rotated.ps
 
-Now, 
+2. Find the blue colour with some image editor. I used `gimp` on `gatineau_trail_distances-rotated.png` and its colour picker indicated the RGB for the background is: 217,240,211, or in the 0..1 range: 0.851 0.9412 0.8275
 
 Now, open the postscript file and search for "0.851". 
 
@@ -86,32 +85,6 @@ PNG of PS output:
 ## PDF
 The final PDF is here: [gatineau_trail_distances-rotated-whitebg.pdf](gatineau_trail_distances-rotated-whitebg.pdf)
 
-You will notice there are two pages, one with the map, and a second with a number of error messages from ghostscript:
-```
-ERROR:
-invalidfileaccess
-OFFENDING COMMAND:
-.findfont
-STACK:
-r
-/usr/share/X11/fonts/Type1/UTBI____.pfa
---nostringval--
-true
-/NimbusMonL-Regu
-/Courier
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
--mark-
-```
 
-The second error page is due to some font issues that I have not tracked down yet, but I think has to do with the `pdf2ps` conversion.
 
 
