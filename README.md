@@ -89,4 +89,35 @@ $gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png48 -dDOINTERPOLATE -dTextAlphaBits=4 -
 PNG of PS output:
 ![PNG of the PDF map](gatineau_trail_distances-rotated-whitebg.png)
 
+## PDF Issues
+The PDF is here: [gatineau_trail_distances-rotated-whitebg.pdf](gatineau_trail_distances-rotated-whitebg.pdf)
+
+You will notice there are two pages, one with the map, and a second with a number of error messages from ghostscript:
+```
+ERROR:
+invalidfileaccess
+OFFENDING COMMAND:
+.findfont
+STACK:
+r
+/usr/share/X11/fonts/Type1/UTBI____.pfa
+--nostringval--
+true
+/NimbusMonL-Regu
+/Courier
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+-mark-
+```
+
+The second error page is due to some font issues that I have not tracked down yet, but I think have to do with the `pdf2ps` conversion.
+
 
