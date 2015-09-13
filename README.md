@@ -1,5 +1,6 @@
 
-# The Problem
+#The Problem
+
 I was wanting to go to the Gatineau Park for a hike, and was looking around for some good maps of the trail.
 
 While I found a number of the offical maps:
@@ -38,6 +39,7 @@ However, as I wanted to actually print the map, there were some issues with this
 
 
 ## Rotate, shift and scale
+This is pretty straight forward, although a number of iterations before I got to the particular scale, rotation, and translating.
 
 *Use `pdfjam` to rotate, scale, and shift the original PDF:
 ```
@@ -47,5 +49,44 @@ $ pdfjam  --suffix rotated --scale 8 --angle '300' --offset '-1cm -2.5cm'  gatin
 PNG of PDF output:
 ![PNG of the PDF map](gatineau_trail_distances-rotated.png)
 
+## Remove the blue background
+1. Convert to postscript
+```
+$ pdf2s gatineau_trail_distances-rotated.pdf
+```
+Producing gatineau_trail_distances-rotated.ps
+
+Now, open the postscript file and look for "setrgbcolor". In most postscript files, the author has aliased this to a shorter function.
+In this file, this is done on line 3807
+```
+/rg/setrgbcolor load def
+```
+
+Now, look for where this function is used, with a colour that is similar to the background color, and before some drawing commands for a simple rectangle.
+
+Some searching finds this on line 17983:
+```
+0.851563 0.941406 0.828125 rg
+0.2 i
+-10654.7 5304.08 m
+-2419.21 -8960.5 l
+16040.8 1697.18 l
+7805.36 15961.8 l
+-10654.7 5304.08 l
+f
+```
+
+Change the first line to:
+```
+1 1 1 rg
+```
+
+Preview with ghsoscript as PNG:
+```
+$gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png48 -dDOINTERPOLATE -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -r600x600 -dMaxBitmap=500000000 -dAlignToPixels=0 -dGridFitTT=2 -sOutputFile=a.png ./gatineau_trail_distances-rotated-whitebg.ps
+```
+
+PNG of PS output:
+![PNG of the PDF map](gatineau_trail_distances-rotated-whitebg.png)
 
 
