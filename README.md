@@ -5,9 +5,9 @@ I was wanting to go to the Gatineau Park for a hike, and was looking around for 
 
 While I found a number of the offical maps:
 
-*[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gatineau-park-summer-trail-map.pdf](Gatineau Park Summer Trails Map)
-*[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet-2014_e2_luskvillefalls.pdf](Luskville Falls Trail)
-*[http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet_e3_wolf_0.pdf](Wolf Trail #62)
+* [http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gatineau-park-summer-trail-map.pdf](Gatineau Park Summer Trails Map)
+* [http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet-2014_e2_luskvillefalls.pdf](Luskville Falls Trail)
+* [http://www.ncc-ccn.gc.ca/sites/default/files/pubs/gp_trailfactsheet_e3_wolf_0.pdf](Wolf Trail #62)
 
 
 But was not happy with them.
@@ -21,18 +21,18 @@ Here is a PNG of the PDF map:
 
 However, as I wanted to actually print the map, there were some issues with this map:
 
-*It inefficiently uses the real estate on the page, due to its rotation and scaling.
-*The text on the trails denoting trail length were too small
-*Some of the trails at the north and south end of the park were not of interest to me
-*It had a pale blue background that I did not want to have, both from a readability perspective, and so as not to deplete my printer ink.
+* It inefficiently uses the real estate on the page, due to its rotation and scaling.
+* The text on the trails denoting trail length were too small
+* Some of the trails at the north and south end of the park were not of interest to me
+* It had a pale blue background that I did not want to have, both from a readability perspective, and so as not to deplete my printer ink.
 
 # Pre-requisites
 * `PDFjam`: [http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/](http://www2.warwick.ac.uk/fac/sci/statistics/staff/academic-research/firth/software/pdfjam/)
 * `pdfTeX`, pdtLaTeX, LaTeX package 'pdfpages'
-* `pdftops`: Part of xpdf [http://www.foolabs.com/xpdf/download.html](http://www.foolabs.com/xpdf/download.html)
+* `pdftops`: Part of xpdf [http://www.foolabs.com/xpdf/download.html](http://www.foolabs.com/xpdf/download.html). Tried `pdf2ps` & had font issues...
 * `ps2pdf`: [http://ghostscript.com/doc/current/Ps2pdf.htm](http://ghostscript.com/doc/current/Ps2pdf.htm)
 * `psselect`: part of psutils [https://github.com/rrthomas/psutils](https://github.com/rrthomas/psutils)
-* `ghostscript`: need here for verification but is dependency of several of the above programs [http://www.ghostscript.com/](http://www.ghostscript.com/)
+* `ghostscript`: need here for verification and is dependency of several of the above programs [http://www.ghostscript.com/](http://www.ghostscript.com/)
 
 # The Solution
 
